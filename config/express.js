@@ -23,14 +23,5 @@ module.exports = function() {
         res.status(404).render('erros/404');
         next();
     });
-
-    app.use(function(error,req,res,next){
-        if (process.env.NODE_ENV == 'production') {
-            res.status(500).render('erros/500');
-            return;
-        }
-        next(error);
-    });
-
     return app;
 }
