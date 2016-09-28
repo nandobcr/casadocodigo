@@ -22,6 +22,10 @@ var createDbConnection = function(){
     if (process.env.NODE_ENV == 'production'){
         var urlConexao = process.env.CLEARDB_DATABASE_URL;
         var grupos = urlConexao.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?reconnect=true/);
+
+        console.log(grupos[3]);
+
+
         return mysql.createConnection({
             host: grupos[3],
             user: grupos[1],
